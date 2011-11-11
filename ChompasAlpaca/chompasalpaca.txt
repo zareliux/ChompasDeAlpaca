@@ -1,0 +1,82 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tiempo de generación: 11-11-2011 a las 03:32:22
+-- Versión del servidor: 5.1.37
+-- Versión de PHP: 5.3.0
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Base de datos: `chompasalpaca`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `chompas`
+--
+
+CREATE TABLE IF NOT EXISTS `chompas` (
+  `chompaID` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) NOT NULL,
+  `tipoInsumo` varchar(30) NOT NULL,
+  `stockMin` int(11) NOT NULL,
+  `StockReal` int(11) NOT NULL,
+  `UnidadesxPedido` int(11) NOT NULL,
+  PRIMARY KEY (`chompaID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Volcar la base de datos para la tabla `chompas`
+--
+
+INSERT INTO `chompas` (`chompaID`, `nombre`, `tipoInsumo`, `stockMin`, `StockReal`, `UnidadesxPedido`) VALUES
+(1, 'Office', 'Classic', 100, 0, 200),
+(2, 'Mid Season', 'Modern', 80, 0, 100),
+(3, 'Holmes', 'Classic', 80, 0, 100),
+(4, 'Gigardo', 'Elegant', 120, 0, 180),
+(5, 'Anton', 'Classic', 100, 0, 150),
+(6, 'L''Blanc', 'Elegant', 150, 0, 200);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `insumos`
+--
+
+CREATE TABLE IF NOT EXISTS `insumos` (
+  `insumoID` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL,
+  PRIMARY KEY (`insumoID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Volcar la base de datos para la tabla `insumos`
+--
+
+INSERT INTO `insumos` (`insumoID`, `nombre`) VALUES
+(1, 'Elegant'),
+(2, 'Classic'),
+(3, 'Modern');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pedidos`
+--
+
+CREATE TABLE IF NOT EXISTS `pedidos` (
+  `pedidoID` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` date NOT NULL,
+  `insumo` int(11) NOT NULL,
+  `cantidadTotal` int(11) NOT NULL,
+  PRIMARY KEY (`pedidoID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Volcar la base de datos para la tabla `pedidos`
+--
+
