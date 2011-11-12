@@ -26,6 +26,26 @@ class ChompasView {
                 $miControlPedido->insertar($fecha, $chompaID, $insumo, $cantidad, $estado);
             }
         }
+        if($_GET['opcion']){
+            $opcion = $_GET['opcion'];
+            switch ($opcion) {
+                case 2:
+                    $listado = $pedidoControl->getAllPedidos();
+                    $this->_mostrarListaPedidos($listado);
+                    break;
+                case 3:
+                    $listadoChompa=$chompaControl->getAll();
+                    $this->_mostrarStock($listadoChompa);
+                    break;
+                case 4:
+                    $listaChompa=$chompaControl->getAll();
+                    $this->_mostrarFormularioVentas($listaChompa);
+                    break;
+
+                default:
+                    break;
+            }
+        }
     }
 
     private function _stockMinimo(){
@@ -62,6 +82,13 @@ class ChompasView {
 
     private function _mostrarResultadoVenta($listaChompas, $stockPedido){
         require_once 'ResultadoVentas.php';
+    }
+
+     private function _mostrarListaPedidos($lista){
+        require_once 'ListaPedidos.php';
+    }
+    private function _mostrarStock($lista){
+        require_once 'ListaStock.php';
     }
 }
 

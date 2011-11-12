@@ -14,6 +14,19 @@ body {
 	line-height: normal;
 }
 
+.divEspacio{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.stockMinimo{
+    font-family: Tahoma, Geneva, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #FF0000;
+	text-align: center;
+}
+
 h1 {
 	font-size: 22px;
 	color: #FFFFFF;
