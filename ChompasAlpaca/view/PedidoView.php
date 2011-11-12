@@ -7,9 +7,10 @@ class PedidoView {
         $pedidoControl = new PedidosControl();
         $chompaControl = new ChompasControl();
         if($_POST['pedido']){
-            $listaPedidos = $pedidoControl->getAllPedidos();
-            $this->_mostrarPedidoForm($listaPedidos, $respuesta);
+            $listaPedidos = $pedidoControl->getAllPedidos();            
+            $this->_mostrarPedidoForm($listaPedidos);
         }
+       
         if($_GET['opcion']){
             $opcion = $_GET['opcion'];
             if($opcion == 1){
@@ -27,18 +28,19 @@ class PedidoView {
                               $chompaControl->modificar($idChompa, $cantActual);
                         }}
                     }
-
                 }
-                $pedidos = $pedidoControl->getAllPedidos();
-               
-                $respuesta = true;
+                $pedidosfinal = $pedidoControl->getAllPedidos();
             }
-            $this->_mostrarPedidoForm($pedidos, $respuesta);
+            $this->_mostrarPedidoResultado($pedidosfinal);
         }
     }
 
     private function _mostrarPedidoForm($listaPedidos){
         require_once 'FormPedidos.php';
+    }
+
+    private function _mostrarPedidoResultado($pedidos){
+        require_once 'ResultadoPedido.php';
     }
 }
 
