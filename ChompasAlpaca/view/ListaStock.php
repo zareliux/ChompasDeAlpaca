@@ -23,6 +23,7 @@ and open the template in the editor.
                 <td><?php echo $chompa->getNombre();?></td>
                 <td><?php echo $chompa->getCantidadActual();?></td>
                 <td><?php echo $chompa->getInsumo();?></td>
+                <td><?php echo $chompa->getStockMinimo();?></td>
             </tr>
             <?php }?>
         </table>

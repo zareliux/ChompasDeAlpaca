@@ -34,13 +34,13 @@
         </tr>
         
         <tr>
-          <td class="links"><a href="?opcion=4">REGISTRAR VENTAS </a></td>
+          <td class="links"><a href="ChompasView.php?opcion=4">REGISTRAR VENTAS </a></td>
         </tr>
         <tr>
-          <td class="links"><a href="?opcion=3">REVISAR STOCK </a></td>
+          <td class="links"><a href="PedidoView.php?opcion=3">REVISAR STOCK </a></td>
         </tr>
           <tr>
-          <td class="links"><a href="?opcion=2">LISTADO DE PEDIDOS </a></td>
+          <td class="links"><a href="PedidoView.php?opcion=2">LISTADO DE PEDIDOS </a></td>
         </tr>
         <tr>
           <td><img src="Im&aacute;genes/adorno.jpg" width="210" height="50" alt="" /></td>
