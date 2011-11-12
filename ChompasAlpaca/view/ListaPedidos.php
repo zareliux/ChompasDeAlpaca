@@ -5,17 +5,24 @@ and open the template in the editor.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Chompas de Alpaca</title>
-    </head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Alexander :::.. El experto en moda</title>
+<style type="text/css">
+<!--
+@import url("CSS/css.css");
+
+-->
+</style>
+</head>
+
     <body>
         <h1>Pedidos realizados a la fecha</h1>
 
         <table>
             <tr>
-                <th>Fecha Solicitud</th>
-                <th>Cantidad</th>
-                <th>Insumo</th>
+                <th class="texto3">Fecha Solicitud</th>
+                <th class="texto3">Cantidad</th>
+                <th class="texto3">Insumo</th>
             </tr>
             <?php foreach($lista as $pedido){?>
             <tr>
@@ -25,6 +32,6 @@ and open the template in the editor.
             </tr>
             <?php }?>
         </table>
-        <a href="?opcion=4">Iniciar</a>
+        <a class="linka" href="ChompasView.php?opcion=4">Iniciar</a>
     </body>
 </html>

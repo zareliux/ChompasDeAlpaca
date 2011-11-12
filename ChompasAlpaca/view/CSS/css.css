@@ -191,6 +191,11 @@ p {
 	border: thick solid #777777;
 	text-align: center;
 }
+
+.linka{
+    font-size:20px;
+
+}
 .texto3 {
 	font-family: Tahoma, Geneva, sans-serif;
 	font-size: 13px;
@@ -210,9 +215,11 @@ p {
 a:link {
 	color: #FFFFFF;
 	text-decoration: none;
+        font-size:16px;
 }
 a:visited {
 	color: #B2B2B2;
+        font-size:16px;
 }
 
 
