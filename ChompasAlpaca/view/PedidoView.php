@@ -33,16 +33,16 @@ class PedidoView {
                     $this->_mostrarPedidoResultado($pedidosfinal);
                   break;
                 case 2:
-                    $listado = $pedidoControl->getAllPedidos();
-                    $this->_mostrarListaPedidos($listado);
+                    $lista = $pedidoControl->getAllPedidos();
+                    $this->_mostrarListaPedidos($lista);
                     break;
                 case 3:
-                    $listadoChompa=$chompaControl->getAll();
-                    $this->_mostrarStock($listadoChompa);
+                    $lista=$chompaControl->getAll();
+                    $this->_mostrarStock($lista);
                     break;
                 case 4:
-                    $listaChompa=$chompaControl->getAll();
-                    $this->_mostrarformularioVentas($listaChompa);
+                    $lista=$chompaControl->getAll();
+                    $this->_mostrarformularioVentas($lista);
                     break;
 
                 default:

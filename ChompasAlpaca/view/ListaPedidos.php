@@ -17,7 +17,7 @@ and open the template in the editor.
                 <th>Cantidad</th>
                 <th>Insumo</th>
             </tr>
-            <?php foreach($listado as $pedido){?>
+            <?php foreach($lista as $pedido){?>
             <tr>
                 <td><?php echo $pedido->getFecha();?></td>
                 <td><?php echo $pedido->getCantidad();?></td>
@@ -25,6 +25,6 @@ and open the template in the editor.
             </tr>
             <?php }?>
         </table>
-        <a href="index.php">iniciar</a>
+        <a href="?opcion=4">Iniciar</a>
     </body>
 </html>

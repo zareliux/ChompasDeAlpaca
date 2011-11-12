@@ -26,20 +26,20 @@ class ChompasView {
                 $miControlPedido->insertar($fecha, $chompaID, $insumo, $cantidad, $estado);
             }
         }
-        if($_GET['opcion']){
-            $opcion = $_GET['opcion'];
+        if($_REQUEST['opcion']){
+            $opcion = $_REQUEST['opcion'];
             switch ($opcion) {
                 case 2:
-                    $listado = $pedidoControl->getAllPedidos();
-                    $this->_mostrarListaPedidos($listado);
+                    $lista = $pedidoControl->getAllPedidos();
+                    $this->_mostrarListaPedidos($lista);
                     break;
                 case 3:
-                    $listadoChompa=$chompaControl->getAll();
-                    $this->_mostrarStock($listadoChompa);
+                    $lista=$chompaControl->getAll();
+                    $this->_mostrarStock($lista);
                     break;
                 case 4:
-                    $listaChompa=$chompaControl->getAll();
-                    $this->_mostrarFormularioVentas($listaChompa);
+                    $lista=$chompaControl->getAll();
+                    $this->_mostrarFormularioVentas($lista);
                     break;
 
                 default:

@@ -18,7 +18,7 @@ and open the template in the editor.
                 <th>Insumo</th>
                 <th>Stock Minimo</th>
             </tr>
-            <?php foreach($listadoChompa as $chompa){?>
+            <?php foreach($lista as $chompa){?>
             <tr>
                 <td><?php echo $chompa->getNombre();?></td>
                 <td><?php echo $chompa->getCantidadActual();?></td>
@@ -26,6 +26,6 @@ and open the template in the editor.
             </tr>
             <?php }?>
         </table>
-         <a href="index.php">iniciar</a>
+         <a href="?opcion=4">iniciar</a>
     </body>
 </html>
