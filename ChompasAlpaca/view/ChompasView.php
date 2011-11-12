@@ -5,29 +5,62 @@ class ChompasView {
 
     public function ejecutar(){
         $miControlChompa = new ChompasControl();
+        $miControlPedido = new PedidosControl();
         if(!$_POST['venta']){
             $listaChompa = $miControlChompa->getAll();
             $this->_mostrarFormularioVentas($listaChompa);
         }
         else{
-            $chompa = new chompa();
-           $lista = $miControlChompa->getAll();
-           for ($id = 0 ; $id < count($lista) ; $id++) {
-              $cantComprada = $_POST["cantidad$id"];
-              $cantidad =$chompa->calcularStockActual($cantComprada);
-              $miControlChompa->modificar($id, $cantidad);
-           }
+           $this->_calcularCantidad();
            $listaChompas = $miControlChompa->getAll();
-           $this->_mostrarResultadoVenta($listaChompas);       
-
+           $stockPedido = $this->_stockMinimo();
+           $this->_mostrarResultadoVenta($listaChompas, $stockPedido);
+        }
+        if($stockPedido!= null){            
+            foreach ($stockPedido as $obj) {               
+                $fecha =date("d/m/Y");
+                $chompaID=$obj->getID();
+                $insumo = $obj->getInsumo();
+                $cantidad = $obj->getCantidadxPedido();
+                $estado = 'pendiente';
+                $miControlPedido->insertar($fecha, $chompaID, $insumo, $cantidad, $estado);
+            }
+        }
     }
+
+    private function _stockMinimo(){
+        $miControl= new ChompasControl();
+        $lista = $miControl->getAll();
+        foreach ($lista as $obj) {
+            if($obj->getCantidadActual()<= $obj->getStockMinimo()){
+                $array[]=$obj;
+            }
+        }
+        return $array;
+    }
+
+    private function _calcularCantidad(){
+         $miControlChompa = new ChompasControl();
+         $chompa = new chompa();
+           $lista = $miControlChompa->getAll();
+           $id =1;
+           while($id <= count($lista)) {
+               foreach($lista as $chompita){
+              $cantComprada = $_POST["cantidad$id"];
+              $cantidad =$chompita->getCantidadActual()-$cantComprada;
+              $miControlChompa->modificar($id, $cantidad);
+              $id++;
+              $cantidad =0;
+               }
+           }
+           
     }
 
     private function _mostrarFormularioVentas($listaChompa){
         require_once 'InicioVenta.php';
     }
 
-    private function _mostrarResultadoVenta($listaChompas){
+    private function _mostrarResultadoVenta($listaChompas, $stockPedido){
         require_once 'ResultadoVentas.php';
     }
 }

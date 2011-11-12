@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 11-11-2011 a las 03:32:22
+-- Tiempo de generación: 11-11-2011 a las 18:59:29
 -- Versión del servidor: 5.1.37
 -- Versión de PHP: 5.3.0
 
@@ -27,19 +27,19 @@ CREATE TABLE IF NOT EXISTS `chompas` (
   `StockReal` int(11) NOT NULL,
   `UnidadesxPedido` int(11) NOT NULL,
   PRIMARY KEY (`chompaID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Volcar la base de datos para la tabla `chompas`
 --
 
 INSERT INTO `chompas` (`chompaID`, `nombre`, `tipoInsumo`, `stockMin`, `StockReal`, `UnidadesxPedido`) VALUES
-(1, 'Office', 'Classic', 100, 0, 200),
-(2, 'Mid Season', 'Modern', 80, 0, 100),
-(3, 'Holmes', 'Classic', 80, 0, 100),
-(4, 'Gigardo', 'Elegant', 120, 0, 180),
-(5, 'Anton', 'Classic', 100, 0, 150),
-(6, 'L''Blanc', 'Elegant', 150, 0, 200);
+(1, 'Office', 'Classic', 100, 310, 200),
+(2, 'Mid Season', 'Modern', 80, 370, 100),
+(3, 'Holmes', 'Classic', 80, 180, 100),
+(4, 'Gigardo', 'Elegant', 120, 160, 180),
+(5, 'Anton', 'Classic', 100, 230, 150),
+(6, 'L''Blanc', 'Elegant', 150, 650, 200);
 
 -- --------------------------------------------------------
 
@@ -70,13 +70,20 @@ INSERT INTO `insumos` (`insumoID`, `nombre`) VALUES
 
 CREATE TABLE IF NOT EXISTS `pedidos` (
   `pedidoID` int(11) NOT NULL AUTO_INCREMENT,
-  `fecha` date NOT NULL,
-  `insumo` int(11) NOT NULL,
+  `fecha` varchar(30) NOT NULL,
+  `chompaID` int(11) NOT NULL,
+  `insumo` varchar(30) NOT NULL,
   `cantidadTotal` int(11) NOT NULL,
+  `estado` varchar(30) NOT NULL,
   PRIMARY KEY (`pedidoID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Volcar la base de datos para la tabla `pedidos`
 --
 
+INSERT INTO `pedidos` (`pedidoID`, `fecha`, `chompaID`, `insumo`, `cantidadTotal`, `estado`) VALUES
+(1, '11/11/2011', 5, 'Classic', 150, 'Recibido'),
+(2, '11/11/2011', 6, 'Elegant', 200, 'Recibido'),
+(3, '11/11/2011', 3, 'Classic', 100, 'Recibido'),
+(4, '11/11/2011', 5, 'Classic', 150, 'Recibido');

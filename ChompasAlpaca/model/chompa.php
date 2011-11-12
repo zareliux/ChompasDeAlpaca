@@ -45,21 +45,22 @@ class chompa {
             $stockMin = $chompa['stockMin'];
             $cantActual = $chompa['StockReal'];
             $cantxPedido = $chompa['UnidadesxPedido'];
-            $arreglo[] = new chompa($id, $nombre, $insumo, $stockMin, $cantActual, $cantxpedido);
+            $arreglo[] = new chompa($id, $nombre, $insumo, $stockMin, $cantActual, $cantxPedido);
         }
         return $arreglo;
    }
 
-   public function calcularStockActual($cantComprada){
+  /* public function calcularStockActual($cantComprada){
         $this->_cantidadActual = $this->_cantidadActual - $cantComprada;
        return $this->_cantidadActual;
-    }
+    }*/
 
     public function update(){
-        $sql = "UPDATE `chompasAlpaca`.`chompas` SET  `StockReal` = '$this->_cantidadActual'
-                WHERE `chompas`.`chompaID` = $$this->_id;";
+        $sql = "UPDATE `chompasalpaca`.`chompas` SET `StockReal` = '$this->_cantidadActual'
+                 WHERE `chompas`.`chompaID` = '$this->_id';";
+        
         $conexion = mysql_connect('localhost', 'root');
-        mysql_select_db('chompasAlpaca', $conexion);
+        mysql_select_db('chompasalpaca', $conexion);
         $resultado = mysql_query($sql, $conexion);
         return $resultado;
     }

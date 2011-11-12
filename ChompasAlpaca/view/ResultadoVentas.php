@@ -23,5 +23,28 @@
             <?php }?>
         </table>
 
+            <?php if($stockPedido!= null){?>
+            <p>Se ha llegado al tope mínimo de stock, por favor realice un pedido</p>
+            <form action="PedidoView.php" method="post">
+                <table>
+                     <tr>
+                        <th>Chompa</th>
+                        <th>Insumo</th>
+                        <th>Cantidad x Pedido</th>
+                        
+                    </tr>
+                     <?php foreach($stockPedido as $pedido){?>
+                    <tr>
+                        <td><?php echo $pedido->getNombre();?></td>
+                        <td><?php echo $pedido->getInsumo();?></td>
+                        <td><?php echo $pedido->getCantidadxPedido();?></td>
+                        
+                    </tr>                   
+                    <?php }?>
+                </table>
+                <input type="hidden" name="pedido" value="1">
+                <p><input type="submit" name="solicitarPedido" value="Solicitar Pedido"></p>
+            </form>
+                <?php }?>
     </body>
 </html>

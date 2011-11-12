@@ -14,15 +14,11 @@ class ChompasControl {
         return $this->_colChompas;
    }
 
-   public function modificar($id, $cantidad){
-    $chompa = new chompa();
+   public function modificar($id, $cantActual){
+    $chompa = new chompa($id, $nombre, $insumo, $stockMin, $cantActual, $cantxpedido);
     $chompa->update();
    }
 
-  /* public function calcularStock($cantidad){
-       $chompa = new chompa();
-       $cantidad = $chompa->calcularStockActual($cantComprada);
-       return $cantidad;
-   }*/
+   
 }
 ?>

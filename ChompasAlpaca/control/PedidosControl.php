@@ -4,38 +4,39 @@ require_once '/../interface/ItemsInterface.php';
 class PedidosControl {
     private $_colPedidos;
 
-   public function getAllPedidos(ItemsInterface $listaPedido){
-        $lista = $listaPedido->listar();
+   public function getAllPedidos(){
+       $pedido = new pedido();
+        $lista = $pedido->listar();
         foreach ($lista as $pedido) {
             $this->_colPedidos[]=$pedido;
         }
         return $this->_colPedidos;
     }
 
-    public function insertar($fecha, $insumo, $cantidad){
-        $pedido = new pedido($id, $fecha, $insumo, $cantidad);
+    public function insertar($fecha, $chompaID,$insumo, $cantidad, $estado){
+        $pedido = new pedido($id, $fecha, $chompaID, $insumo, $cantidad, $estado);
         $pedido->insertar();
     }
 
-    public function buscar(ItemsInterface $iPedido){
-        $lista = $iPedido->buscar($fecha);
-        foreach ($lista as $pedido) {
-            $array[]=$pedido;
+    public function modificar($id, $estado){
+    $pedido = new pedido($id, $fecha, $chompaID, $insumo, $cantidad, $estado);
+    $pedido->update();
+   }
+
+   public function setFechaActual(){
+       $pedido=new pedido();
+       $fecha = date("d/m/Y");
+       $fechaActual =$pedido->setFecha($fecha);
+       return $fechaActual;
+   }
+
+    public function buscar($fecha){
+        $pedido = new pedido();
+        $lista = $pedido->buscar($fecha);
+        foreach ($lista as $pedidito) {
+            $array[]=$pedidito;
         }
         return $array;
-    }
-
-    /*public function setMensajeResultado($promedio){
-        $alumno = new alumno();
-
-        if($promedio>10){
-           $mensaje = 'APROBADO';
-        }
-        elseif($promedio<11){
-            $mensaje = 'DESAPROBADO';
-        }
-        $alumno->setResultado($mensaje);
-        return $mensaje;
-    }*/
+    }   
     }
 ?>

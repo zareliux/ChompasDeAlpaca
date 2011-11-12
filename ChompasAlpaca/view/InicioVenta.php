@@ -13,13 +13,12 @@
                     <th>Chompa</th>
                     <th>Cantidad</th>
                 </tr>
-               <?php $id=0;?>
-                 <?php foreach($listaChompa as $chompa){ 
-                     $id++?>
-
+               <?php $id=0; ?>
+                 <?php foreach($listaChompa as $chompa){
+                 $id++;?>
                 <tr>
                     <td><label for="chompa"><?php echo $chompa->getNombre();?></label></td>
-                    <td><input type="text" id="cantidad" name="cantidad<?php echo "$id";?>"/></td>
+                    <td><input type="text" id="cantidad" name="cantidad<?php echo "$id";?>" /></td>
                 </tr>
             <?php } ?>
 
