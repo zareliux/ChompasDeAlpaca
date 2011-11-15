@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '/../control/PedidosControl.php';
 require_once '/../control/ChompasControl.php';
 class PedidoView {
@@ -6,6 +7,7 @@ class PedidoView {
     public function ejecutar(){
         $pedidoControl = new PedidosControl();
         $chompaControl = new ChompasControl();
+        if(isset($_SESSION['usuario'])){
         if($_POST['pedido']){
             $listaPedidos = $pedidoControl->getAllPedidos();            
             $this->_mostrarPedidoForm($listaPedidos);
@@ -48,7 +50,10 @@ class PedidoView {
                 default:
                     break;
 
-            }
+            }}
+        else{
+            header("location:LoginView.php");
+        }
     }}
 
     private function _mostrarPedidoForm($listaPedidos){

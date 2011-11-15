@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '/../control/ChompasControl.php';
 require_once '/../control/PedidosControl.php';
 class ChompasView {
@@ -6,6 +7,7 @@ class ChompasView {
     public function ejecutar(){
         $miControlChompa = new ChompasControl();
         $miControlPedido = new PedidosControl();
+        if(isset ($_SESSION['usuario'])){
         if(!$_POST['venta']){
             $listaChompa = $miControlChompa->getAll();
             $this->_mostrarFormularioVentas($listaChompa);
@@ -45,7 +47,10 @@ class ChompasView {
                 default:
                     break;
             }
-        }
+        }}
+    else{
+        header("location:LoginView.php");
+    }
     }
 
     private function _stockMinimo(){

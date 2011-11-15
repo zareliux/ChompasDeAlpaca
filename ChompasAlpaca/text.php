@@ -1,6 +1,7 @@
 <?php
 require_once 'control/PedidosControl.php';
-$control = new PedidosControl();
-$lista =$control->getAllPedidos();
-echo var_dump($lista);
+require_once 'model/usuario.php';
+$model = new usuario();
+$usuarios = $model->listar();
+
 ?>

@@ -1,3 +1,3 @@
 <?php
-header("location:view/ChompasView.php");
+header("location:view/LoginView.php");
 ?>
